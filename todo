@@ -1,0 +1,8 @@
+#!/bin/bash
+
+file="$ZET/_todo.md"
+
+cd "$ZET" || exit
+
+# Open
+code . "$file"
