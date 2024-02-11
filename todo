@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This script is used to open the todo markdown file in the default editor.
+
 file="$ZET/_todo.md"
 
 cd "$ZET" || exit

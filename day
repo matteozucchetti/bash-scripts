@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This script is used to open the daily note markdown file in the default editor.
+# If the file does not exist, create a new one.
+
 today=$(date +"%Y-%m-%d")
 file="$ZET"'/daily/'$(date +"%Y-%m-%d").md
 

@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # creates a new script in my scripts collection
-
 # check if script name is provided
 
 name=$1
