@@ -36,4 +36,4 @@ if [ ! -f "$file" ]; then
 fi
 
 # Open
-nvim . "$file"
+nvim "$file"

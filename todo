@@ -7,4 +7,4 @@ file="$ZET/_todo.md"
 cd "$ZET" || exit
 
 # Open
-nvim . "$file"
+nvim "$file"
