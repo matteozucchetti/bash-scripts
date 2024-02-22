@@ -15,4 +15,4 @@ cd "$SCRIPTS" || exit
 touch "$name"
 chmod +x "$name"
 echo "#!/bin/bash" >"$name"
-nvim "$name"
+code . "$name"
