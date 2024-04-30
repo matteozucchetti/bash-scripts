@@ -1,0 +1,66 @@
+#!/bin/bash
+
+prefixes="
+https://www.thenorthface.co.uk
+https://www.thenorthface.ie
+https://www.thenorthface.se/en_se
+https://www.thenorthface.eu/en_lu
+https://www.thenorthface.eu/en_fi
+https://www.thenorthface.eu/en_dk
+https://www.thenorthface.de
+https://www.thenorthface.at
+https://www.thenorthface.ch/de_ch
+https://www.thenorthface.eu/de_lu
+https://www.thenorthface.fr
+https://www.thenorthface.ch/fr_ch
+https://www.thenorthface.eu/fr_be
+https://www.thenorthface.es
+https://www.thenorthface.it
+https://www.thenorthface.ch/it_ch
+https://www.thenorthface.nl
+https://www.thenorthface.eu/nl_be
+https://www.thenorthface.pl
+https://www.thenorthface.pt
+https://www.thenorthface.cz
+https://www.thenorthface.se
+https://www.thenorthface.eu/sv_fi
+https://www.thenorthface.eu/da_dk
+"
+
+urllist="
+/404.html
+/7summit.html
+/BackToTrail.html
+/CMYK.html
+/Chamonix-events.html
+"
+
+## find and remove duplicates
+urllist=$(echo $urllist | tr ' ' '\n' | sort -u | tr '\n' ' ')
+
+## Loop through the list of prefixes and append each URL to the list, writing each set of URLs to a different file (24 different files)
+for prefix in $prefixes
+do
+    ## remove the protocol from the prefix
+    name=$(echo $prefix | sed 's/https:\/\///g')
+    name=$(echo $name | sed 's/www.thenorthface.//g')
+    ## remove the slashes from the prefix
+    name=$(echo $name | sed 's/\///g')
+    echo $name
+    # touch "urls/$name.txt"
+    # ## write each set of URLs to a different file
+    # for url in $urllist
+    # do
+    #     echo "$prefix$url" >> "urls/$name.txt"
+    # done
+done
+
+# loop through all the files and all the urls in each file and run the curl command, appending the status output next to the URL ", 200" or ", 404" (writing to the respective prefix file)
+for file in urls/*.txt
+do
+    while read url
+    do
+        status=$(curl -s -o /dev/null -w "%{http_code}" $url)
+        echo "$url, $status" >> "output/$(basename $file)"
+    done < $file
+done
