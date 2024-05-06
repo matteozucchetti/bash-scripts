@@ -1,37 +1,11 @@
 #!/bin/bash
 
 prefixes="
-https://www.thenorthface.co.uk
-https://www.thenorthface.ie
-https://www.thenorthface.se/en_se
-https://www.thenorthface.eu/en_lu
-https://www.thenorthface.eu/en_fi
-https://www.thenorthface.eu/en_dk
-https://www.thenorthface.de
-https://www.thenorthface.at
-https://www.thenorthface.ch/de_ch
-https://www.thenorthface.eu/de_lu
-https://www.thenorthface.fr
-https://www.thenorthface.ch/fr_ch
-https://www.thenorthface.eu/fr_be
-https://www.thenorthface.es
-https://www.thenorthface.it
-https://www.thenorthface.ch/it_ch
-https://www.thenorthface.nl
-https://www.thenorthface.eu/nl_be
-https://www.thenorthface.pl
-https://www.thenorthface.pt
-https://www.thenorthface.cz
-https://www.thenorthface.se
-https://www.thenorthface.eu/sv_fi
-https://www.thenorthface.eu/da_dk
+... list of domain prefixes here
 "
 
 urllist="
-backpack-finder.html
-footwear-finder.html
-jacket-finder.html
-tent-sleepingbag-guide.html
+... list of slugs here
 "
 
 # empty the files urls.txt and metadata.txt
