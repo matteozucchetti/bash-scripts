@@ -2,7 +2,6 @@
 
 # This script is used to search for a project folder with fzf and open it in vscode directly from the terminal
 
-
 # If a folder is passed as an argument, use it
 if [[ $# -eq 1 ]]; then
     project_folder=$1
