@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# This script is used to search for a particular file with fzf and open it in vscode directly from the terminal
+
+# Search for a file, exluding the ones in node_modules or .git folders
+file=$(find ~/zet ~/repos/bitbucket ~/repos/github -type f -not -path "*/node_modules/*" -not -path "*/.git/*" | fzf)
+
+# If no folder is selected, exit
+if [[ -z $file ]]; then
+    exit 0
+fi
+
+code --reuse-window $file
+
