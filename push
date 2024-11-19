@@ -7,7 +7,7 @@
 today=$(date +"%Y-%m-%d")
 
 # if I am into a bitbull repo (home/repos/bitbull) then exit
-echo "$(pwd)" =~ "personal"
+echo $(pwd) =~ "personal"
 
 git add .
 git commit -m "${today}"
