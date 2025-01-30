@@ -131,11 +131,11 @@ echo "Starting brew app install..."
 
 
 ### Developer Tools
-brew install --cask iterm2
+# brew install --cask iterm2
 #brew install --cask dash
 #brew install ispell
 #brew install --cask grammarly
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 
 
@@ -144,24 +144,27 @@ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O 
 #brew install --cask docker
 #brew install postgresql
 #brew install redis
-brew install --cask orbstack
-brew install mutagen-io/mutagen/mutagen
-brew install wardenenv/warden/warden
+# brew install --cask orbstack
+# brew install mutagen-io/mutagen/mutagen
+# brew install wardenenv/warden/warden
 
-brew install --cask tinkerwell
-brew install --cask dbeaver-community
-brew install --cask gitkraken 
-brew install --cask postman
+# brew install --cask tinkerwell
+# brew install --cask dbeaver-community
+# brew install --cask gitkraken 
+# brew install --cask postman
 #brew install --cask discord
 #brew install --cask responsively 
 
 
 ### Command line tools - install new ones, update others to latest version
 brew install git  # upgrade to latest
-brew install git-flow
+# brew install git-flow
 #brew install git-lfs # track large files in git https://github.com/git-lfs/git-lfs
 brew install wget
 brew install zsh # zshell
+brew install zoxide
+brew install fzf
+brew install lazygit
 #brew install tmux
 #brew install tree
 #brew link curl --force
@@ -175,16 +178,16 @@ brew install zsh # zshell
 #echo 'export PATH="/opt/homebrew/opt/php@8.1/bin:$PATH"' >> ~/.zshrc
 #echo 'export PATH="/opt/homebrew/opt/php@8.1/sbin:$PATH"' >> ~/.zshrc
 
-brew install php@8.2
-echo 'export PATH="/opt/homebrew/opt/php@8.2/bin:$PATH"' >> ~/.zshrc
-echo 'export PATH="/opt/homebrew/opt/php@8.2/sbin:$PATH"' >> ~/.zshrc
+# brew install php@8.2
+# echo 'export PATH="/opt/homebrew/opt/php@8.2/bin:$PATH"' >> ~/.zshrc
+# echo 'export PATH="/opt/homebrew/opt/php@8.2/sbin:$PATH"' >> ~/.zshrc
 
 # developer tools required for aws 
-xcode-select --install
+# xcode-select --install
 
-brew install awscli
-brew tap aws/tap
-brew install aws-sam-cli
+# brew install awscli
+# brew tap aws/tap
+# brew install aws-sam-cli
 
 ### Node
 echo ""
@@ -200,13 +203,13 @@ fi
 
 
 ### Python
-echo ""
-echo "Do you want to install Python? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  brew install python
-  brew install pyenv
-fi
+# echo ""
+# echo "Do you want to install Python? (y/n)"
+# read -r response
+# if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+#   brew install python
+#   brew install pyenv
+# fi
 
 
 ### Microcontrollers & Electronics
@@ -224,26 +227,26 @@ brew install --cask visual-studio-code
 #brew tap d12frosted/emacs-plus
 #brew install emacs-plus --HEAD --with-natural-title-bars
 #brew linkapps emacs-plus
-brew install --cask jetbrains-toolbox 
+# brew install --cask jetbrains-toolbox 
 # Manually install phpstorm from jetbrains toolbox post login
 
 
 
 
 ### Requirements for plantuml
-echo ""
-echo "Do you want to install libs to use pluntUML? (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  brew install --cask temurin
-  brew install graphviz
-fi
+# echo ""
+# echo "Do you want to install libs to use pluntUML? (y/n)"
+# read -r response
+# if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+#   brew install --cask temurin
+#   brew install graphviz
+# fi
 
 
 ### Writing
 #brew install --cask evernote
 #brew install --cask macdown
-brew install --cask notion
+#brew install --cask notion
 #brew install --cask obsidian
 
 ### Conferences, Blogging, Screencasts
@@ -281,11 +284,10 @@ brew install --cask notion
 #brew install --cask quicklook-csv  # preview csvs
 
 
-### Chat / Video Conference
-#brew install --cask slack
-#brew install --cask microsoft-teams
-#brew install --cask zoomus
-#brew install --cask signal
+### Apps
+brew install --cask raycast
+brew install --cask slack
+brew install --cask whatsapp
 
 
 ### Music and Video
@@ -313,42 +315,42 @@ brew cleanup
 #cd ~/Library/Fonts && { curl -O 'https://github.com/Falkor/dotfiles/blob/master/fonts/SourceCodePro+Powerline+Awesome+Regular.ttf?raw=true' ; cd -; }
 
 ## powerline font https://catalins.tech/improve-mac-terminal/
-git clone https://github.com/powerline/fonts.git
-cd fonts
-./install.sh
-cd ..
-rm -rf fonts
+# git clone https://github.com/powerline/fonts.git
+# cd fonts
+# ./install.sh
+# cd ..
+# rm -rf fonts
 
 
 #############################################
 ### Installs from Mac App Store
 #############################################
 
-echo "Installing apps from the App Store..."
+# echo "Installing apps from the App Store..."
 
-### find app ids with: mas search "app name"
-brew install mas
+# ### find app ids with: mas search "app name"
+# brew install mas
 
-### Mas login is currently broken on mojave. See:
-### Login manually for now.
+# ### Mas login is currently broken on mojave. See:
+# ### Login manually for now.
 
-cecho "Need to log in to App Store manually to install apps with mas...." $red
-echo "Opening App Store. Please login."
-open "/Applications/App Store.app"
-echo "Is app store login complete.(y/n)? "
-read response
-if [ "$response" != "${response#[Yy]}" ]
-then
-	mas install 822514576  # Sonicwall ssl vpn
+# cecho "Need to log in to App Store manually to install apps with mas...." $red
+# echo "Opening App Store. Please login."
+# open "/Applications/App Store.app"
+# echo "Is app store login complete.(y/n)? "
+# read response
+# if [ "$response" != "${response#[Yy]}" ]
+# then
+# 	mas install 822514576  # Sonicwall ssl vpn
 
-	#mas install 907364780  # Tomato One - Pomodoro timer
-	#mas install 485812721  # Tweetdeck
-	#mas install 668208984  # GIPHY Capture. The GIF Maker (For recording my screen as gif)
-	#mas install 1351639930 # Gifski, convert videos to gifs
-	#mas install 414030210  # Limechat, IRC app.
-else
-	cecho "App Store login not complete. Skipping installing App Store Apps" $red
-fi
+# 	#mas install 907364780  # Tomato One - Pomodoro timer
+# 	#mas install 485812721  # Tweetdeck
+# 	#mas install 668208984  # GIPHY Capture. The GIF Maker (For recording my screen as gif)
+# 	#mas install 1351639930 # Gifski, convert videos to gifs
+# 	#mas install 414030210  # Limechat, IRC app.
+# else
+# 	cecho "App Store login not complete. Skipping installing App Store Apps" $red
+# fi
 
 
 #############################################
@@ -383,10 +385,10 @@ fi
 ##################
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
-#defaults write com.apple.finder QuitMenuItem -bool true
+defaults write com.apple.finder QuitMenuItem -bool true
 
 # Keep folders on top when sorting by name
-#defaults write com.apple.finder _FXSortFoldersFirst -bool true
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
 # Expand save panel by default
 #defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -396,22 +398,22 @@ fi
 #defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Finder: show all filename extensions
-#defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Remove the auto-hiding Dock delay
-#defaults write com.apple.dock autohide-delay -float 0
+# defaults write com.apple.dock autohide-delay -float 0
 
 # Automatically hide and show the Dock
 #defaults write com.apple.dock autohide -bool true
 
 # Only Show Open Applications In The Dock  
-#defaults write com.apple.dock static-only -bool true
+defaults write com.apple.dock static-only -bool true
 
 # Display full POSIX path as Finder window title
-#defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 # Disable the warning when changing a file extension
-#defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+# defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Automatically quit printer app once the print jobs complete
 #defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
@@ -420,12 +422,12 @@ fi
 #defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Avoid creating .DS_Store files on network or USB volumes
-#defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-#defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 # Use list view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
-#defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Minimize windows into their application’s icon
 #defaults write com.apple.dock minimize-to-application -bool true
@@ -434,7 +436,7 @@ fi
 #defaults write com.apple.dock autohide -bool true
 
 # Don’t show recent applications in Dock
-#    defaults write com.apple.dock show-recents -bool false
+defaults write com.apple.dock show-recents -bool false
 
 # Menu bar: hide the Time Machine, User icons, but show the volume Icon.
 #for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
@@ -458,7 +460,7 @@ fi
 #defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 # Disable auto-correct
-#defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Use function F1, F, etc keys as standard function keys
 #defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
@@ -545,7 +547,7 @@ fi
 ###############################################################################
 
 # Prevent Photos from opening automatically when devices are plugged in
-#defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 ###############################################################################
 # Google Chrome                                                               #
