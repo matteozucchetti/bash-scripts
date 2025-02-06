@@ -7,7 +7,7 @@ if [[ $# -eq 1 ]]; then
     project_folder=$1
 # Otherwise, search for a folder
 else
-    project_folder=$(find ~ ~/repos ~/repos/bitbull ~/repos/personal  -mindepth 1 -maxdepth 1 -type d | fzf)
+    project_folder=$(find ~ ~/repos ~/repos/work ~/repos/personal  -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 # If no folder is selected, exit
