@@ -20,7 +20,6 @@ new_note() {
 - [ ] Workout
 - [ ] Run / Hike
 - [ ] Mobility / Stretching
-- [ ] Skin routine
 - [ ] Read / Study
 
 ## Log
